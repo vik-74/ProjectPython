@@ -79,7 +79,7 @@ devide.grid(row=6, column=0)
 delete = Button(text="C", height=1, width=7, command=lambda: deletepress())
 delete.grid(row=7, column=2)
 
-exponent = Button(text="^", height=1, width=7, command=lambda: press_exponent("^"))
+exponent = Button(text="^", height=1, width=7, command=lambda: press_num("**"))
 exponent.grid(row=7, column=0)
 
 root.mainloop()
