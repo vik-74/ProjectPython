@@ -30,14 +30,17 @@ def deletepress():
     expression =""
     result.set(expression)
 
-def factorialpress(num):
-    global expression
-    result.set (expression)
-    
-    factorial = 1
-    for num in range(2, num + 1):
-        factorial = factorial * num
-    return(factorial)
+def factorialpress():
+    try:
+        global expression
+        expression.replace("!","")
+        num = int(expression)
+        factorial = 1
+        for num in range(2, num + 1):
+            factorial = factorial * num
+        result.set(factorial)
+    except:
+        result.set("error")
 
 
 
@@ -92,7 +95,7 @@ delete.grid(row=7, column=2)
 exponent = Button(text="^", height=1, width=7, command=lambda: press_num("**"))
 exponent.grid(row=7, column=0)
 
-factorial = Button(text="!", height=1, width=7, command=lambda: press_num("!"))
+factorial = Button(text="!", height=1, width=7, command=lambda: factorialpress())
 factorial.grid(row=7, column=1)
 
 root.mainloop()
