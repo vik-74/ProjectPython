@@ -25,6 +25,12 @@ def equalpress():
     except:
         result.set("error")
 
+def deletepress():
+    global expression
+    expression =""
+    result.set(expression)
+
+
 button1 = Button(text="1", height=1, width=7, command=lambda: press_num(1))
 button1.grid(row=2, column=0)
 
@@ -69,5 +75,11 @@ multiply.grid(row=6, column=2)
 
 devide = Button(text="/", height=1, width=7, command=lambda: press_num("/"))
 devide.grid(row=6, column=0)
+
+delete = Button(text="C", height=1, width=7, command=lambda: deletepress())
+delete.grid(row=7, column=2)
+
+exponent = Button(text="^", height=1, width=7, command=lambda: press_exponent("^"))
+exponent.grid(row=7, column=0)
 
 root.mainloop()
