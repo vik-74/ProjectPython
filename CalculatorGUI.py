@@ -16,6 +16,15 @@ def press_num(num):
     expression += str(num)
     result.set(expression)
 
+def equalpress():
+    try:
+        global expression
+        total =str(eval(expression))
+        result.set(total)
+        expression = "total"
+    except:
+        result.set("error")
+
 button1 = Button(text="1", height=1, width=7, command=lambda: press_num(1))
 button1.grid(row=2, column=0)
 
@@ -43,13 +52,22 @@ button8.grid(row=4, column=1)
 button9 = Button(text="9", height=1, width=7, command=lambda: press_num(9))
 button9.grid(row=4, column=2)
 
-plus = Button(text="+", height=1, width=7)
+plus = Button(text="+", height=1, width=7, command=lambda: press_num("+"))
 plus.grid(row=5, column=0)
 
-button0 = Button(text="0", height=1, width=7)
+button0 = Button(text="0", height=1, width=7,command=lambda: press_num(0))
 button0.grid(row=5, column=1)
 
-minus = Button(text="-", height=1, width=7)
+minus = Button(text="-", height=1, width=7, command=lambda: press_num("-"))
 minus.grid(row=5, column=2)
+
+equal = Button(text="=", height=1, width=7, command=equalpress)
+equal.grid(row=6, column=1)
+
+multiply = Button(text="*", height=1, width=7, command=lambda: press_num("*"))
+multiply.grid(row=6, column=2)
+
+devide = Button(text="/", height=1, width=7, command=lambda: press_num("/"))
+devide.grid(row=6, column=0)
 
 root.mainloop()
