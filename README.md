@@ -1,1 +1,1 @@
-# Welcome to Victor the Debil's Python Calcultor.
+# Welcome to Victor the Debil's Python Calculator.
