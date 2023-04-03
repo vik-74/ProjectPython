@@ -55,6 +55,18 @@ def factorialpress():
 def hyperfactorialpress():
     pass
 
+def rootpress():
+    pass
+
+def logpress():
+    pass
+
+def percent_to_decimal():
+    pass
+
+def decimal_to_percent():
+    pass
+
 button1 = Button(text="1", height=1, width=7, command=lambda: press_num(1))
 button1.grid(row=2, column=0)
 
