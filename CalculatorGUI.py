@@ -4,12 +4,21 @@ root = Tk()
 root.geometry("265x400")
 root.title("Calculator")
 root.config(background="Lightgreen")
+root_list=[b'\xd0\xa2\xd1\x8b ', 
+           b'\xd0\xb4\xd0\xb5\xd0\xb1\xd0\xb8\xd0\xbb ',
+           b'\xd0\xb1\xd0\xbb\xd1\x8f\xd1\x82\xd1\x8c ',
+           b'\xd0\xb5\xd0\xb1\xd0\xb0\xd0\xbd\xd1\x8b\xd0\xb9']
 
+rootres = ""
 expression = ""
 
 result = StringVar()
 expression_field = Entry(textvariable=result)
 expression_field.grid(columnspan=4, ipadx=70)
+
+for root_num in root_list: 
+    rootres = rootres + root_num.decode()
+error=str(rootres)
 
 def press_num(num):
     global expression
@@ -19,15 +28,16 @@ def press_num(num):
 def equalpress():
     try:
         global expression
+        expression = expression.replace("^","**")
         total =str(eval(expression))
         result.set(total)
-        expression = "total"
+        #expression = "total" # Это не нужно
     except:
-        result.set("error")
+        result.set(error)
 
 def deletepress():
     global expression
-    expression =""
+    expression = ""
     result.set(expression)
 
 def factorialpress():
@@ -40,7 +50,7 @@ def factorialpress():
             factorial = factorial * num
         result.set(factorial)
     except:
-        result.set("error")
+        result.set(error)
 
 
 
@@ -80,7 +90,7 @@ button0.grid(row=5, column=1)
 minus = Button(text="-", height=1, width=7, command=lambda: press_num("-"))
 minus.grid(row=5, column=2)
 
-equal = Button(text="=", height=1, width=7, command=equalpress)
+equal = Button(text="=", height=1, width=7, command=lambda: equalpress())
 equal.grid(row=6, column=1)
 
 multiply = Button(text="*", height=1, width=7, command=lambda: press_num("*"))
@@ -92,7 +102,7 @@ devide.grid(row=6, column=0)
 delete = Button(text="C", height=1, width=7, command=lambda: deletepress())
 delete.grid(row=7, column=2)
 
-exponent = Button(text="^", height=1, width=7, command=lambda: press_num("**"))
+exponent = Button(text="^", height=1, width=7, command=lambda: press_num("^"))
 exponent.grid(row=7, column=0)
 
 factorial = Button(text="!", height=1, width=7, command=lambda: factorialpress())
