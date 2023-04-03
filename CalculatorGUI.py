@@ -52,7 +52,8 @@ def factorialpress():
     except:
         result.set(error)
 
-
+def hyperfactorialpress():
+    pass
 
 button1 = Button(text="1", height=1, width=7, command=lambda: press_num(1))
 button1.grid(row=2, column=0)
