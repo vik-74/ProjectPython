@@ -109,8 +109,8 @@ equal.grid(row=6, column=1)
 multiply = Button(text="*", height=1, width=7, command=lambda: press_num("*"))
 multiply.grid(row=6, column=2)
 
-devide = Button(text="/", height=1, width=7, command=lambda: press_num("/"))
-devide.grid(row=6, column=0)
+divide = Button(text="/", height=1, width=7, command=lambda: press_num("/"))
+divide.grid(row=6, column=0)
 
 delete = Button(text="C", height=1, width=7, command=lambda: deletepress())
 delete.grid(row=7, column=2)
