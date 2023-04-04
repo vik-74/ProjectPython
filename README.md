@@ -4,7 +4,6 @@
 + Infinity.
 + Logarithms.
 + Roots, such as the Square Root.
-+ Hyperfactorials.
 + Modulo.
 + Percent-to-decimal/Decimal-to-procent.
 
