@@ -53,7 +53,14 @@ def factorialpress():
         result.set(error)
 
 def hyperfactorialpress():
-    pass
+    try:
+        global expression
+        factorial = 1
+        for num in range(2, int(expression) + 1):
+            factorial = factorial * (num ** num)
+        result.set(factorial)
+    except:
+        result.set(error)
 
 button1 = Button(text="1", height=1, width=7, command=lambda: press_num(1))
 button1.grid(row=2, column=0)
@@ -108,5 +115,8 @@ exponent.grid(row=7, column=0)
 
 factorial = Button(text="!", height=1, width=7, command=lambda: factorialpress())
 factorial.grid(row=7, column=1)
+
+hfactorial = Button(text="H()", height=1, width=7, command=lambda: hyperfactorialpress())
+hfactorial.grid(row=8, column=1)
 
 root.mainloop()
