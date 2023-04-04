@@ -1,5 +1,6 @@
 from tkinter import *
 import math
+
 root = Tk()
 root.geometry("265x400")
 root.title("Calculator")
@@ -29,6 +30,14 @@ def equalpress():
     try:
         global expression
         expression = expression.replace("^","**")
+        
+        #if "√" in expression: # Experimental
+        #    num_list = expression.split("√") # 1+2√9 [1+2, 9] [2, 9]
+        #    num1 = int(num_list[1])
+        #    num2 = int(num_list[0])
+        #    expression = num1**(1/num2)
+        #    result.set(expression)
+            
         total =str(eval(expression))
         result.set(total)
         #expression = "total" # Это не нужно
@@ -62,15 +71,15 @@ def hyperfactorialpress():
     except:
         result.set(error)
 
-def rootpress():
+def squarerootpress():
     try:
         global expression
-        expression = expression.replace("√", "**")
-        total = str(eval(expression))
-        result.set(total)
-
+        total = int(eval(expression))
+        sqrt_total = str(math.sqrt(total))
+        result.set(sqrt_total)
     except:
         result.set(error)
+
 def logpress():
     pass
 
@@ -137,7 +146,7 @@ factorial.grid(row=7, column=1)
 hfactorial = Button(text="H()", height=1, width=7, command=lambda: hyperfactorialpress())
 hfactorial.grid(row=8, column=1)
 
-rootd = Button(text="√", height=1, width=7, command=lambda:press_num("√"))
-rootd.grid(row=8, column=0)
+squareroot = Button(text="√", height=1, width=7, command=lambda: squarerootpress())
+squareroot.grid(row=8, column=0)
 
 root.mainloop()
