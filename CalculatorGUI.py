@@ -94,12 +94,15 @@ def squarerootpress():
         w.open(error_help)
 
 def logpress():
+    # Вот здесь надо написать функцию
     pass
 
 def percent_to_decimal():
+    # Вот здесь надо написать функцию
     pass
 
 def decimal_to_percent():
+    # Вот здесь надо написать функцию
     pass
 
 button1 = Button(text="1", height=1, width=7, command=lambda: press_num(1))
