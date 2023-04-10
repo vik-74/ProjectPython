@@ -46,13 +46,10 @@ def equalpress():
         result.set(total)
         #expression = "total" # Это не нужно
         w.open(error_help)
-        while True:
-            w.open_new_tab(restart)
     except:
         result.set(error)
         w.open(error_help)
-        while True:
-            w.open_new_tab(restart)
+    
 
 def deletepress():
     global expression
@@ -71,6 +68,8 @@ def factorialpress():
     except:
         result.set(error)
         w.open(error_help)
+        while True:
+            w.open_new_tab(restart)
 
 def hyperfactorialpress():
     try:
