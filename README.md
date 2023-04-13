@@ -13,3 +13,4 @@
 + Tau.
 + The Golden Ratio.
 
+![](https://github.com/vik-74/PythonCalculator/blob/main/ILpVh7.gif)
